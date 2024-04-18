@@ -51,7 +51,7 @@ export function Intro() {
   return (
     <>
       <div className="flex">
-        <Image src={"/profile.jpg"} alt="Kurniawan Ramdhani" width={300} height={300}
+        <Image src={"/kur2.png"} alt="Kurniawan Ramdhani" width={300} height={300}
         alt="Author" className="w-40 h-40 rounded-full" />
       </div>
       <h1 className="mt-8 font-display text-4xl/tight font-light text-white">
@@ -67,7 +67,7 @@ export function Intro() {
       </p>
 
       <p className="mt-4 text-sm/6 text-gray-300">
-        Lorem Ipsum
+        
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-x-1 gap-y-3 sm:gap-x-2 lg:justify-start">
         <IconLink href="https://github.com/kurniawaanr" icon={GitHubIcon} className="flex-none" target="_blanks">
