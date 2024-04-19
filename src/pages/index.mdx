@@ -46,13 +46,3 @@ coming soon
 ```json
 coming soon
 ```
-
-## Connecting
-
-This step is kinda optional, but I think it's a good idea, as it will ensure that the connection has been established/authorized.
-
-It'll send a NIP-46 `connect` command to the nsecBunker; the nsecBunker will `ok` if/when the local private key is authorized to connect.
-
-```typescript
-await remoteSigner.blockUntilRead()
-```
