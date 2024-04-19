@@ -63,7 +63,7 @@ export function Intro() {
 
       <p className="my-8 text-md/5 font-light text-gray-300">
       Hello there! 👋
-      I recently graduated with a Bachelors degree in Informatics from Indonesia. Currently, Im delving into web development with a focus on <b>backend</b> technologies. Additionally, Im exploring the realm of <b>DevOps</b>, learning about various tools and experimenting with their usage.
+      I recently graduated with a Bachelors degree in Informatics from Indonesia. Currently, {`I'm`} delving into web development with a focus on <b>backend</b> technologies. Additionally, {`I'm`} exploring the realm of <b>DevOps</b>, learning about various tools and experimenting with their usage.
       </p>
 
       <p className="mt-4 text-sm/6 text-gray-300">
@@ -85,7 +85,7 @@ export function IntroFooter() {
   return (
     <p className="flex items-baseline gap-x-2 text-[0.8125rem]/6 text-gray-500">
       Brought to you by{' '}
-      Kurniawan Ramdhani
+      kurniawaanr
     </p>
   )
 }
