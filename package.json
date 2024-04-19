@@ -1,15 +1,12 @@
 {
   "name": "tailwindui-commit",
   "version": "0.1.0",
-  "homepage": "https://kurniawaanr.github.io/my-web"
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build"
+    "lint": "next lint"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {

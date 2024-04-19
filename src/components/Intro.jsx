@@ -52,7 +52,7 @@ export function Intro() {
     <>
       <div className="flex">
         <Image src={"/kur2.png"} alt="Kurniawan Ramdhani" width={300} height={300}
-        alt="Author" className="w-40 h-40 rounded-full" />
+        className="w-40 h-40 rounded-full" />
       </div>
       <h1 className="mt-8 font-display text-4xl/tight font-light text-white">
         <span className="text-sky-300"><b>Kurniawan</b> Ramdhani</span><br />
@@ -63,7 +63,7 @@ export function Intro() {
 
       <p className="my-8 text-md/5 font-light text-gray-300">
       Hello there! 👋
-      I recently graduated with a Bachelor's degree in Informatics from Indonesia. Currently, I'm delving into web development with a focus on <b>backend</b> technologies. Additionally, I'm exploring the realm of <b>DevOps</b>, learning about various tools and experimenting with their usage.
+      I recently graduated with a Bachelors degree in Informatics from Indonesia. Currently, Im delving into web development with a focus on <b>backend</b> technologies. Additionally, Im exploring the realm of <b>DevOps</b>, learning about various tools and experimenting with their usage.
       </p>
 
       <p className="mt-4 text-sm/6 text-gray-300">
