@@ -48,7 +48,7 @@ function TwitterIcon(props) {
   )
 }
 
-const words = ["Backend Dev", "Devops Enthusiast", "Javascript Slayer"];
+const words = ["Backend Beginner", "Devops Enthusiast", "JavaScripter"];
 let i = 0;
 let j = 0;
 let currentWord = "";
@@ -74,7 +74,7 @@ function type() {
     j++;
     if (j == currentWord.length) {
       isDeleting = true;
-      setTimeout(type, 3000); // Pause for 3000ms after typing a word
+      setTimeout(type, 2000); // Pause for 3000ms after typing a word
     } else {
       setTimeout(type, 50); // Continue typing characters
     }
