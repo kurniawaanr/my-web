@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { IconLink } from '@/components/IconLink'
 import { Logo } from '@/components/Logo'
 import { SignUpForm } from '@/components/SignUpForm'
+import { useEffect } from 'react'
 
 function BookIcon(props) {
   return (
@@ -47,7 +48,43 @@ function TwitterIcon(props) {
   )
 }
 
+const words = ["Backend Dev", "Devops Enthusiast", "Javascript Slayer"];
+let i = 0;
+let j = 0;
+let currentWord = "";
+let isDeleting = false;
+
+function type() {
+  currentWord = words[i];
+  if (isDeleting) {
+    document.getElementById("typewriter").textContent = currentWord.substring(0, j-1);
+    j--;
+    if (j == 0) {
+      isDeleting = false;
+      i++;
+      if (i == words.length) {
+        i = 0;
+      } 
+      setTimeout(type, 50); // Pause for 50ms after deleting a word
+    } else {
+      setTimeout(type, 50); // Continue deleting characters
+    }
+  } else {
+    document.getElementById("typewriter").textContent = currentWord.substring(0, j+1);
+    j++;
+    if (j == currentWord.length) {
+      isDeleting = true;
+      setTimeout(type, 3000); // Pause for 3000ms after typing a word
+    } else {
+      setTimeout(type, 50); // Continue typing characters
+    }
+  }
+}
+
 export function Intro() {
+  useEffect(() => {
+    type();
+  }, []);
   return (
     <>
       <div className="flex">
@@ -57,9 +94,10 @@ export function Intro() {
       <h1 className="mt-8 font-display text-4xl/tight font-light text-white">
         <span className="text-sky-300"><b>Kurniawan</b> Ramdhani</span><br />
       </h1>
-      <h2 className="font-display text-md/tight font-regular text-white">
-        Freshman Back-End & DevOps Enthusiast
-      </h2>
+      <div className="flex mt-0">
+        <h2 className="font-display text-xl/tight font-regular text-white mr-1">Freshman </h2>
+        <h2 id="typewriter" className="font-display text-xl/tight font-semibold text-white"></h2>
+      </div>
 
       <p className="my-8 text-md/5 font-light text-gray-300">
       Hello there! 👋
