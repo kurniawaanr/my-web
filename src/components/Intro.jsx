@@ -92,7 +92,7 @@ export function Intro() {
         className="w-40 h-40 rounded-full" />
       </div>
       <h1 className="mt-8 font-display text-4xl/tight font-light text-white">
-        <span className="text-sky-300"><b>Kurniawan</b> Ramdhani</span><br />
+        <span className="text-sky-400"><b>Kurniawan</b> Ramdhani</span><br />
       </h1>
       <div className="flex mt-0">
         <h2 className="font-display text-xl/tight font-regular text-white mr-1">Freshman </h2>
