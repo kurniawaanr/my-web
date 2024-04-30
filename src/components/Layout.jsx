@@ -94,17 +94,19 @@ export function Layout({ children }) {
       <FixedSidebar main={<Intro />} footer={<IntroFooter />} />
       <ThemeToggle />
       <div className="relative flex-auto">
-      <div className="space-y-10 py-10 mx-auto max-w-7xl px-6 lg:flex lg:px-8 mt-10">
-        <div className="lg:ml-96 lg:flex lg:w-full lg:justify-end lg:pl-32">
-        <h1 className="mx-auto max-w-lg lg:mx-0 lg:w-0 lg:max-w-xl lg:flex-auto">
-          My Projects
-        </h1>
-        <p className="mx-auto max-w-lg lg:mx-0 lg:w-0 lg:max-w-xl lg:flex-auto text-md">
-         this is a showcase of what im doing and created so far. everything it might be not perfect and have
-        </p>
-        </div>
-      </div>
         <Timeline />
+        <div className="space-y-10 py-10 mx-auto max-w-7xl px-6 lg:flex lg:px-8 m-5">
+        <div className="lg:ml-96 lg:flex lg:w-full lg:justify-end lg:pl-32">
+  <div className="mx-auto max-w-lg lg:mx-0 lg:w-0 lg:max-w-xl lg:flex-auto">
+    <h1 className="font-bold text-2xl mb-4 text-sky-400">
+      My Projects
+    </h1>
+    <span className="font-light text-sm">
+    this is a showcase of what im doing and created so far. everything it might be not perfect and have a lot of misconception, but thats is my progress to learn and keep learn everyday.
+    </span>
+  </div>
+</div>
+        </div>
         <main className="space-y-0 py-0 sm:space-y-10 sm:py-10 m-5">
           {children}
         </main>
