@@ -48,7 +48,7 @@ function TwitterIcon(props) {
   )
 }
 
-const words = ["Backend Beginner", "Devops Enthusiast", "JavaScripter"];
+const words = ["Backend Beginner", "Devops Enthusiast", "JavaScripter", "Cloud Exploler"];
 let i = 0;
 let j = 0;
 let currentWord = "";
@@ -101,7 +101,7 @@ export function Intro() {
 
       <p className="my-8 text-md/5 font-light text-gray-300">
       Hello there! 👋
-      I recently graduated with a Bachelors degree in Informatics from Indonesia. Currently, {`I'm`} delving into web development with a focus on <b>backend</b> technologies. Additionally, {`I'm`} exploring the realm of <b>DevOps</b>, learning about various tools and experimenting with their usage.
+      I recently graduated with a Bachelors degree in Informatics from Indonesia. Currently, {`I'm`} delving into web development with a focus on <b>Backend</b> technologies and its <b>Infrastructure</b>. Additionally, {`I'm`} exploring the realm of <b>DevOps</b>, learning about various tools and experimenting with their usage.
       </p>
 
       <p className="mt-4 text-sm/6 text-gray-300">

@@ -163,6 +163,18 @@ function PythonIcon(props){
   );
 }
 
+function AzureIcon(props){
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 128 128"><defs><linearGradient id="deviconAzure0" x1="60.919" x2="18.667" y1="9.602" y2="134.423" gradientUnits="userSpaceOnUse"><stop stop-color="#114a8b"/><stop offset="1" stop-color="#0669bc"/></linearGradient><linearGradient id="deviconAzure1" x1="74.117" x2="64.344" y1="67.772" y2="71.076" gradientUnits="userSpaceOnUse"><stop stop-opacity="0.3"/><stop offset=".071" stop-opacity="0.2"/><stop offset=".321" stop-opacity="0.1"/><stop offset=".623" stop-opacity="0.05"/><stop offset="1" stop-opacity="0"/></linearGradient><linearGradient id="deviconAzure2" x1="68.742" x2="115.122" y1="5.961" y2="129.525" gradientUnits="userSpaceOnUse"><stop stop-color="#3ccbf4"/><stop offset="1" stop-color="#2892df"/></linearGradient></defs><path fill="url(#deviconAzure0)" d="M46.09.002h40.685L44.541 125.137a6.485 6.485 0 0 1-6.146 4.413H6.733a6.48 6.48 0 0 1-5.262-2.699a6.47 6.47 0 0 1-.876-5.848L39.944 4.414A6.49 6.49 0 0 1 46.09 0z" transform="translate(.587 4.468)scale(.91904)"/><path fill="#0078d4" d="M97.28 81.607H37.987a2.743 2.743 0 0 0-1.874 4.751l38.1 35.562a6 6 0 0 0 4.087 1.61h33.574z"/><path fill="url(#deviconAzure1)" d="M46.09.002A6.43 6.43 0 0 0 39.93 4.5L.644 120.897a6.47 6.47 0 0 0 6.106 8.653h32.48a6.94 6.94 0 0 0 5.328-4.531l7.834-23.089l27.985 26.101a6.62 6.62 0 0 0 4.165 1.519h36.396l-15.963-45.616l-46.533.011L86.922.002z" transform="translate(.587 4.468)scale(.91904)"/><path fill="url(#deviconAzure2)" d="M98.055 4.408A6.48 6.48 0 0 0 91.917.002H46.575a6.48 6.48 0 0 1 6.137 4.406l39.35 116.594a6.476 6.476 0 0 1-6.137 8.55h45.344a6.48 6.48 0 0 0 6.136-8.55z" transform="translate(.587 4.468)scale(.91904)"/></svg>
+  )
+}
+
+function GcpIcon(props){
+  return(
+    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="#f4f2ed" rx="60"/><path fill="#ea4335" d="m161.009 92.39l17.385-17.386l1.159-7.32c-31.68-28.807-82.04-25.54-110.6 6.816c-7.932 8.986-13.817 20.19-16.955 31.76l6.226-.878l34.77-5.733l2.684-2.745c15.466-16.986 41.617-19.272 59.475-4.82z"/><path fill="#4285f4" d="M203.16 105.749a78.318 78.318 0 0 0-23.607-38.064l-24.4 24.4a43.37 43.37 0 0 1 15.921 34.404v4.331c11.993 0 21.716 9.722 21.716 21.715c0 11.994-9.723 21.473-21.716 21.473h-43.493l-4.27 4.636v26.047l4.27 4.087h43.493c31.195.243 56.681-24.605 56.924-55.8a56.483 56.483 0 0 0-24.838-47.229"/><path fill="#34a853" d="M84.149 208.778h43.432v-34.77H84.149a21.312 21.312 0 0 1-8.906-1.952l-6.161 1.891l-17.507 17.385l-1.525 5.917c9.818 7.413 21.796 11.582 34.099 11.529"/><path fill="#fbbc05" d="M84.149 95.989C52.953 96.175 27.815 121.615 28 152.81a56.486 56.486 0 0 0 22.049 44.438l25.193-25.193c-10.93-4.938-15.787-17.802-10.849-28.731c4.938-10.93 17.802-15.787 28.73-10.85a21.718 21.718 0 0 1 10.85 10.85l25.193-25.193a56.421 56.421 0 0 0-45.018-22.143"/></g></svg>
+  )
+}
+
 export function Layout({ children }) {
   return (
     <>
@@ -214,11 +226,17 @@ export function Layout({ children }) {
       <div className="m-2">
         <PythonIcon style={{ width: '50px', height: '50px' }} />
       </div>
+      <div className="m-2">
+        <AzureIcon style={{ width: '50px', height: '50px' }} />
+      </div>
+      <div className="m-2" alt="Google Cloud Platform">
+        <GcpIcon style={{ width: '50px', height: '50px' }} alt="Google Cloud"/>
+      </div>
     </div>
   </div>
 </div>
         </div>
-        <main className="space-y-10 py-10 sm:space-y-15 sm:py-10 m-5">
+        <main className="space-y-20 py-15 sm:space-y-15 sm:py-10 m-5">
           {children}
         </main>
       </div>
