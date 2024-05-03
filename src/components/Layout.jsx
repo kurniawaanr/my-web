@@ -189,8 +189,8 @@ export function Layout({ children }) {
       My Projects
     </h1>
     <span className="font-light text-sm">
-    This is a showcase of my ongoing learning journey and the creations I've developed thus far. While everything may not be perfect and there could be misconceptions, it represents my progress as I strive to learn and improve every day. <br></br>
-    and below is my tech i've been used so far and familiar with:
+    This is a showcase of my ongoing learning journey and the creations {`I've`} developed thus far. While everything may not be perfect and there could be misconceptions, it represents my progress as I strive to learn and improve every day. <br></br>
+    and below is my tech {`I've`} been used so far and familiar with:
     </span>
     <div className="flex flex-wrap mt-2">
       <div className="m-2">
