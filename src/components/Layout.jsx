@@ -236,7 +236,7 @@ export function Layout({ children }) {
   </div>
 </div>
         </div>
-        <main className="space-y-20 py-15 sm:space-y-15 sm:py-10 m-5">
+        <main className="space-y-20 py-15 sm:space-y-20 sm:py-15 m-5 mb-20">
           {children}
         </main>
       </div>
