@@ -36,10 +36,26 @@ then, in both folder /aks and /resource-group folder run this command:
 terraform apply
 
 ---
-## [Jenkins] Deploy Jenkins Server on Azure VM with Terraform {{ date: '2024-03-20T00:00Z' }}
+## [Jenkins] Terraforming Jenkins Server on Azure VM {{ date: '2024-03-20T00:00Z' }}
 
-Jenkins, an open-source automation server, plays a vital role in facilitating CI/CD pipelines. 
-This project aims to automate the deployment of Jenkins on an Azure virtual machine (VM) using Terraform.
+the ideas is to create Jenkins Master on Azure VM with Terraform.
+this will make Jenkins Deployment easy to do, just do a command with terraform apply and a VM will launched and bootsraping jenkins installation. 
+i'm using separated resource file to make it easy to manage and maintain resource.
+
+![HPA](src/images/azure-jenkins.png)
+
+clone this project from [github repo](https://github.com/kurniawaanr/jenkins-terraform), then change the configuration to your need.
+
+
+i also including template file for docker installation on customdata-docker.tpl file. if you want to change it just change in on /virtualmachine folder then change this value.
+```hcl
+custom_data = filebase64("customdata-jenkins.tpl")
+``` 
+then launch this using command
+
+>terraform init<br></br>
+>terraform apply -auto-approve
+
 
 i'm gonna use this Jenkins Server for next project
 ### GitOps/ArgoCD for NodeJS Application
