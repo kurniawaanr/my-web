@@ -66,14 +66,21 @@ ON PROGRESS
 
 ---
 
-## [AWS] Deploying static website using Amazon S3 Bucket {{ date: '2024-03-20T00:00Z' }}
+## [ArgoCD] CI/CD Pipeline Implementation with ArgoCD on AKS and Jenkins {{ date: '2024-03-20T00:00Z' }}
 
-This project focuses on deploying a static website using Amazon Simple Storage Service (S3) bucket, a highly scalable and cost-effective storage solution provided by Amazon Web Services (AWS).
-Deploying static websites to S3 offers simplicity, reliability, and performance, making it an ideal choice for hosting static content such as HTML, CSS, JavaScript files, and images.
+In this project, I created a CI/CD pipeline using ArgoCD on Azure Kubernetes Service (AKS) and integrated Jenkins for continuous integration (CI). 
+The aim was to automate the build, test, and deployment processes to ensure efficient and reliable software delivery.
 
-```javascript
-ON PROGRESS
-```
+![Azure Architecture](src/images/argocdAKS.gif)
+
+### Key Components :
+- <b>Azure Kubernetes Service (AKS)</b>: Used for a managed Kubernetes environment to deploy and manage containerized applications.
+- <b>Jenkins</b>: Set up to handle CI tasks, automating the build and testing phases.
+- <b>ArgoCD</b>: Implemented for continuous deployment (CD), automating the deployment of applications to AKS.
+
+### Implementation :
+- <b>CI with Jenkins</b>: Configured pipelines to automate code builds and tests upon commits, ensuring high code quality.
+- <b>CD with ArgoCD</b>: Automated deployments to AKS, ensuring rapid and reliable releases.
 
 ---
 
@@ -90,4 +97,4 @@ ON PROGRESS
 
 ## My Next Projects Plan {{ date: '2024-05-01T00:00Z' }}
 
-> [ExpressJS] Invoicing App using Express JS <br></br> [ExpressJS] E-commerce Back-end using Express JS <br></br> [Kubernetes] Blue-Green deployment with Kubernetes
+> [ExpressJS] Invoicing App using Express JS <br></br> [ExpressJS] E-commerce Back-end using Express JS <br></br> [Kubernetes] Blue-Green deployment with Kubernetes <br></br> [SonarQube] improving code quality with SonarQube
