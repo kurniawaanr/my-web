@@ -69,18 +69,24 @@ ON PROGRESS
 ## [ArgoCD] CI/CD Pipeline Implementation with ArgoCD on AKS and Jenkins {{ date: '2024-03-20T00:00Z' }}
 
 In this project, I created a CI/CD pipeline using ArgoCD on Azure Kubernetes Service (AKS) and integrated Jenkins for continuous integration (CI). 
-The aim was to automate the build, test, and deployment processes to ensure efficient and reliable software delivery.
+The aim was to automate the build, test, and deployment processes to ensure efficient and reliable software delivery. In this architecture, I'm initially deploying resources using the Azure portal. 
+in the next update, I will automate the deployment process using Terraform.
 
 ![Azure Architecture](src/images/argocdAKS.gif)
 
 ### Key Components :
 - <b>Azure Kubernetes Service (AKS)</b>: Used for a managed Kubernetes environment to deploy and manage containerized applications.
+- <b>Azure Container Registry</b>: Used for push & pull images.
 - <b>Jenkins</b>: Set up to handle CI tasks, automating the build and testing phases.
 - <b>ArgoCD</b>: Implemented for continuous deployment (CD), automating the deployment of applications to AKS.
 
 ### Implementation :
+
+![CI/CD Architecture](src/images/CICD.gif)
 - <b>CI with Jenkins</b>: Configured pipelines to automate code builds and tests upon commits, ensuring high code quality.
 - <b>CD with ArgoCD</b>: Automated deployments to AKS, ensuring rapid and reliable releases.
+
+In this scenario, I'm using a simple NodeJS app, and whenever changes are made to the NodeJS repository, ArgoCD will track these changes and synchronize them with the Kubernetes cluster.
 
 ---
 
