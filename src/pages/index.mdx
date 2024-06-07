@@ -90,14 +90,40 @@ In this scenario, I'm using a simple NodeJS app, and whenever changes are made t
 
 ---
 
-## [Jenkins] CI/CD pipeline for NodeJS using Jenkins and Docker {{ date: '2024-04-15T00:00Z' }}
+## [CircleCI] Streamlining CI/CD in Azure Cloud: Exploring CircleCI's Efficiency Over Jenkins {{ date: '2024-04-15T00:00Z' }}
 
-This project aims to set up a Continuous Integration/Continuous Deployment (CI/CD) pipeline for a Node.js application using Jenkins and Docker.
-By automating the build, test, and deployment processes, developers can ensure code quality, streamline development workflows, and deliver software more efficiently.
 
-```javascript
-ON PROGRESS
+CircleCI is a simpler option compared to Jenkins. It's easy to set up and doesn't need much tweaking. 
+Unlike Jenkins, which needs a lot of manual work and upkeep, CircleCI already has things set up for you and works smoothly in the cloud. 
+This means developers can spend more time writing code instead of dealing with the setup, making deployments faster and more dependable. 
+In this project, I'll show how CircleCI is easy to use and why it's better than other similar tools.
+
+### Key Components :
+- ACR 
+- CircleCI free
+- Azure web app
+
+
+create azure container Registry and get an access key from the Registry clone demo project from here im using NodeJS for create simple Web App Create and build a Docker image on ACR,  here's the dockerfile :
+
+```dockerfile
+FROM node:current-alpine
+COPY . /app
+WORKDIR /app
+RUN npm install
+ENTRYPOINT ["npm", "start"]
 ```
+then build and push it into ACR, im using existing ACR for another project named gitopscr then create new name nodeapp
+>docker build -t gitopscr.azurecr.io/nodeapp:latest .
+
+make sure you already login into your ACR, an then push the image using this command
+>docker push
+
+then create azure web app, make it access to acr next create .circleci/config.yml inside root project to configure pipeline. login circleci
+in this setup im using gitlab bcs github doesnt work. but it dostn matter. dont forget to set env var in circleci app project setting. try to make change on main repo
+then commit it, the pipeline should be running like this and success.
+
+
 
 ---
 
