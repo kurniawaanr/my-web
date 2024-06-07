@@ -120,7 +120,7 @@ Clone demo project from my [GitLab repo](https://gitlab.com/kurniawaanr/CircleCI
 im using NodeJS to create simple Web App.
 then create and build a Docker Image on ACR, here's the dockerfile :
 
-```dockerfile
+```docker
 FROM node:current-alpine
 COPY . /app
 WORKDIR /app
@@ -147,7 +147,7 @@ then commit it, the pipeline should be running like this and success.
 A build job failed because CircleCI attempted to push an image to ACR, which requires an access key.
 Be sure to add the necessary environment variable in the CircleCI app.
 
-> $DOCKER_USER = ACR user<br></br> $DOCKER_PASS = ACR password test
+> $DOCKER_USER = ACR user<br></br> $DOCKER_PASS = ACR password
 
 ---
 
