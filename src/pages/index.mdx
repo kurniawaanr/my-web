@@ -98,13 +98,18 @@ Unlike Jenkins, which needs a lot of manual work and upkeep, CircleCI already ha
 This means developers can spend more time writing code instead of dealing with the setup, making deployments faster and more dependable. 
 In this project, I'll show how CircleCI is easy to use and why it's better than other similar tools.
 
+![CI/CD Architecture](src/images/circleci.jpg)
+
 ### Key Components :
-- ACR 
-- CircleCI free
-- Azure web app
+- <b>Azure Container Registry (ACR)</b> 
+- <b>CircleCI Account</b>
+- <b>Azure Web App</b>
 
 
-create azure container Registry and get an access key from the Registry clone demo project from here im using NodeJS for create simple Web App Create and build a Docker image on ACR,  here's the dockerfile :
+create Azure Container Registry and get an access key from the Registry to give permission pushing image into it.
+Clone demo project from my [GitLab repo](https://gitlab.com/kurniawaanr/CircleCI-node).
+im using NodeJS to create simple Web App.
+then create and build a Docker Image on ACR,  here's the dockerfile :
 
 ```dockerfile
 FROM node:current-alpine
@@ -113,15 +118,25 @@ WORKDIR /app
 RUN npm install
 ENTRYPOINT ["npm", "start"]
 ```
-then build and push it into ACR, im using existing ACR for another project named gitopscr then create new name nodeapp
->docker build -t gitopscr.azurecr.io/nodeapp:latest .
+Push it to the Azure Container Registry (ACR). 
+I'm currently using an existing ACR for another project named `gitopscr` and will create a new repository called `nodeapp`. 
+The variables underlined can be adjusted according to your requirements.
+>docker build -t <u>gitopscr</u>.azurecr.io/<u>nodeapp</u>:latest .
 
-make sure you already login into your ACR, an then push the image using this command
->docker push
+make sure you already login into your ACR, otherwise the push process will fail. Then push the image using this command
+>docker push gitopscr.azurecr.io/nodeapp:latest
 
-then create azure web app, make it access to acr next create .circleci/config.yml inside root project to configure pipeline. login circleci
-in this setup im using gitlab bcs github doesnt work. but it dostn matter. dont forget to set env var in circleci app project setting. try to make change on main repo
+then create Azure Web App, make sure it can access to ACR Repository. next create .circleci/config.yml inside root project to configure pipeline. Then login into CircleCI,
+in this setup im using GitLab. Dont forget to set Environtment Variable in CircleCI App project setting. Next, make some change on main repo
 then commit it, the pipeline should be running like this and success.
+
+![CI/CD Architecture](src/images/circlecipipe.png)
+
+A build job failed because CircleCI attempted to push an image to ACR, which requires an access key. 
+Be sure to add the necessary environment variable in the CircleCI app.
+>$DOCKER_USER = ACR user<br></br> $DOCKER_PASS = ACR password
+
+
 
 
 
