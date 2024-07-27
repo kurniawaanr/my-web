@@ -10,10 +10,10 @@ export async function getStaticProps() {
 
 ---
 
-## [Kubernetes] Kubernetes HPA with monitoring system {{ date: '2023-09-09T00:00Z' }}
+## [K8s] Kubernetes HPA with monitoring system {{ date: '2023-09-09T00:00Z' }}
 
-I'm working on a project to develop Horizontal Pod Autoscaling using CPU metrics monitored by Prometheus and Grafana.
-The goal is to continuously monitor the cluster. While I'm still learning and refining the project,
+I'm working on a project to develop Horizontal Pod Autoscaling using CPU metrics monitored by Prometheus and Grafana. 
+The goal is to continuously monitor the cluster. While I'm still learning and refining the project, 
 there might be some misunderstandings about various aspects of the project, and it may not the best practices.
 
 ![HPA High level architecture](src/images/HPA.jpg)
@@ -30,37 +30,34 @@ On this project, I can gain proficiency in IaC principles and understand the int
 
 ![HPA](src/images/azure-terraform.png)
 
-clone the repo from [here](https://github.com/kurniawaanr/azure-terraform.git). make sure you have installed Terraform and Azure CLI.
+clone the repo from [here](https://github.com/kurniawaanr/azure-terraform.git). make sure you have installed Terraform and Azure CLI. 
 then, in both folder /aks and /resource-group folder run this command:
-
 > terraform init<br></br>
-> terraform apply
+terraform apply
 
 ---
-
 ## [Jenkins] Terraforming Jenkins Server on Azure VM {{ date: '2024-03-20T00:00Z' }}
 
 the ideas is to create Jenkins Master on Azure VM with Terraform.
-this will make Jenkins Deployment easy to do, just do a command with terraform apply and a VM will launched and bootsraping jenkins installation.
+this will make Jenkins Deployment easy to do, just do a command with terraform apply and a VM will launched and bootsraping jenkins installation. 
 i'm using separated resource file to make it easy to manage and maintain resource.
 
 ![HPA](src/images/azure-jenkins.png)
 
 clone this project from [github repo](https://github.com/kurniawaanr/jenkins-terraform), then change the configuration to your need.
 
-i also including template file for docker installation on customdata-docker.tpl file. if you want to change it just change in on /virtualmachine folder then change this value.
 
+i also including template file for docker installation on customdata-docker.tpl file. if you want to change it just change in on /virtualmachine folder then change this value.
 ```hcl
 custom_data = filebase64("customdata-jenkins.tpl")
-```
-
+``` 
 then launch this using command
 
-> terraform init<br></br>
-> terraform apply -auto-approve
+>terraform init<br></br>
+>terraform apply -auto-approve
+
 
 i'm gonna use this Jenkins Server for next project
-
 ### GitOps/ArgoCD for NodeJS Application
 
 ```javascript
@@ -69,32 +66,25 @@ ON PROGRESS
 
 ---
 
-## [ArgoCD] CI/CD Pipeline Implementation with ArgoCD on AKS and Jenkins {{ date: '2024-03-20T00:00Z' }}
+## [ArgoCD] CI/CD Pipeline Implementation with ArgoCD on AKS and Jenkins {{ date: '2024-03-27T00:00Z' }}
 
-In this project, I created a CI/CD pipeline using ArgoCD on Azure Kubernetes Service (AKS) and integrated Jenkins for continuous integration (CI).
-The aim was to automate the build, test, and deployment processes to ensure efficient and reliable software delivery. In this architecture, I'm initially deploying resources using the Azure portal.
-in the next update, I will automate the deployment process using Terraform.
+In this project, I created a CI/CD pipeline using ArgoCD on Azure Kubernetes Service (AKS) and integrated Jenkins for continuous integration (CI). 
+The aim was to automate the build, test, and deployment processes to ensure efficient and reliable software delivery. In this architecture, I'm initially provisioning resources using the Azure portal.
+ In the next update, I will automate the provisioning process using Terraform.
 
 ![Azure Architecture](src/images/argocdAKS.gif)
-
+### test code
 ### Key Components :
-
-- <b>Azure Kubernetes Service (AKS)</b>: Used for a managed Kubernetes
-  environment to deploy and manage containerized applications.
+- <b>Azure Kubernetes Service (AKS)</b>: Used for a managed Kubernetes environment to deploy and manage containerized applications.
 - <b>Azure Container Registry</b>: Used for push & pull images.
-- <b>Jenkins</b>: Set up to handle CI tasks, automating the build and testing
-  phases.
-- <b>ArgoCD</b>: Implemented for continuous deployment (CD), automating the
-  deployment of applications to AKS.
+- <b>Jenkins</b>: Set up to handle CI tasks, automating the build and testing phases.
+- <b>ArgoCD</b>: Implemented for continuous deployment (CD), automating the deployment of applications to AKS.
 
 ### Implementation :
 
 ![CI/CD Architecture](src/images/CICD.gif)
-
-- <b>CI with Jenkins</b>: Configured pipelines to automate code builds and tests
-  upon commits, ensuring high code quality.
-- <b>CD with ArgoCD</b>: Automated deployments to AKS, ensuring rapid and
-  reliable releases.
+- <b>CI with Jenkins</b>: Configured pipelines to automate code builds and tests upon commits, ensuring high code quality.
+- <b>CD with ArgoCD</b>: Automated deployments to AKS, ensuring rapid and reliable releases.
 
 In this scenario, I'm using a simple NodeJS app, and whenever changes are made to the NodeJS repository, ArgoCD will track these changes and synchronize them with the Kubernetes cluster.
 
@@ -102,23 +92,24 @@ In this scenario, I'm using a simple NodeJS app, and whenever changes are made t
 
 ## [CircleCI] Streamlining CI/CD in Azure Cloud: Exploring CircleCI's Efficiency Over Jenkins {{ date: '2024-04-15T00:00Z' }}
 
-CircleCI is a simpler option compared to Jenkins. It's easy to set up and doesn't need much tweaking.
-Unlike Jenkins, which needs a lot of manual work and upkeep, CircleCI already has things set up for you and works smoothly in the cloud.
-This means developers can spend more time writing code instead of dealing with the setup, making deployments faster and more dependable.
+
+CircleCI is a simpler option compared to Jenkins. It's easy to set up and doesn't need much tweaking. 
+Unlike Jenkins, which needs a lot of manual work and upkeep, CircleCI already has things set up for you and works smoothly in the cloud. 
+This means developers can spend more time writing code instead of dealing with the setup, making deployments faster and more dependable. 
 In this project, I'll show how CircleCI is easy to use and why it's better than other similar tools.
 
 ![CI/CD Architecture](src/images/circleci.jpg)
 
 ### Key Components :
-
-- <b>Azure Container Registry (ACR)</b>{' '}
+- <b>Azure Container Registry (ACR)</b> 
 - <b>CircleCI Account</b>
 - <b>Azure Web App</b>
+
 
 create Azure Container Registry and get an access key from the Registry to give permission pushing image into it.
 Clone demo project from my [GitLab repo](https://gitlab.com/kurniawaanr/CircleCI-node).
 im using NodeJS to create simple Web App.
-then create and build a Docker Image on ACR, here's the dockerfile :
+then create and build a Docker Image on ACR,  here's the dockerfile :
 
 ```docker
 FROM node:current-alpine
@@ -127,16 +118,13 @@ WORKDIR /app
 RUN npm install
 ENTRYPOINT ["npm", "start"]
 ```
-
-Push it to the Azure Container Registry (ACR).
-I'm currently using an existing ACR for another project named `gitopscr` and will create a new repository called `nodeapp`.
+Push it to the Azure Container Registry (ACR). 
+I'm currently using an existing ACR for another project named `gitopscr` and will create a new repository called `nodeapp`. 
 The variables underlined can be adjusted according to your requirements.
-
-> docker build -t <u>gitopscr</u>.azurecr.io/<u>nodeapp</u>:latest .
+>docker build -t <u>gitopscr</u>.azurecr.io/<u>nodeapp</u>:latest .
 
 make sure you already login into your ACR, otherwise the push process will fail. Then push the image using this command
-
-> docker push gitopscr.azurecr.io/nodeapp:latest
+>docker push gitopscr.azurecr.io/nodeapp:latest
 
 then create Azure Web App, make sure it can access to ACR Repository. next create .circleci/config.yml inside root project to configure pipeline. Then login into CircleCI,
 in this setup im using GitLab. Dont forget to set Environtment Variable in CircleCI App project setting. Next, make some change on main repo
@@ -144,13 +132,49 @@ then commit it, the pipeline should be running like this and success.
 
 ![CI/CD Architecture](src/images/circlecipipe.png)
 
-A build job failed because CircleCI attempted to push an image to ACR, which requires an access key.
+A build job failed because CircleCI attempted to push an image to ACR, which requires an access key. 
 Be sure to add the necessary environment variable in the CircleCI app.
+>$DOCKER_USER = ACR user<br></br> $DOCKER_PASS = ACR password
 
-> $DOCKER_USER = ACR user<br></br> $DOCKER_PASS = ACR password
 
 ---
+## [K3s] Automating k3s Cluster Provisioning Using Vagrant & Ansible {{ date: '2024-07-09T00:00Z' }}
 
-## My Next Projects Plan {{ date: '2024-05-01T00:00Z' }}
+In this project, I automate the provisioning of a k3s cluster using k3sup, 
+a tool that simplifies deploying lightweight Kubernetes clusters. Unlike Minikube, 
+which supports only single-node setups, k3s allows for multi-node deployments, offering greater scalability and flexibility. 
+By combining k3sup with <b>Vagrant</b> and <b>Ansible</b>, I demonstrate how to efficiently set up a scalable k3s cluster locally, 
+providing a cost-effective alternative to cloud-based Kubernetes deployments.
 
-> [ExpressJS] Invoicing App using Express JS <br></br> [ExpressJS] E-commerce Back-end using Express JS <br></br> [Kubernetes] Blue-Green deployment with Kubernetes <br></br> [SonarQube] improving code quality with SonarQube
+Thanks to [eruszczak](https://github.com/eruszczak/k3s-virtualbox) for providing these ideas! I'm modifying his code to match my requirements, but I'm using it exclusively to deploy a k3s cluster; Kubernetes deployments are not included.
+here is the flow diagram:
+
+![k3s](src/images/vagrant.gif)
+### Requirements:
+- VirtualBox
+- Ansible
+- Vagrant
+- k3sup
+- kubectl
+
+you can clone [My Repo](https://github.com/kurniawaanr/k3s.git) to start deploying k3s cluster (i'm running it on Ubuntu20), or if you're an advanced user, you can refer to eruszczak repo instead.
+
+then you just have to edit <b>Vagrantfile</b> on this `default_interface` section:
+
+```ruby
+# edit this interface into your used interface
+default_interface = "wlp3s0"
+```
+then edit `ansible_host` on <b>Inventory.yml</b> You need to edit the IP address 192.168.x.x to match your specific IP subnet configuration for each `ansible_host`.
+
+```yml
+ansible_host: 192.168.x.x
+```
+if everything is set up, run the following command on your terminal:
+>make
+
+![Ansible Playbook](src/images/ansible.png)
+
+then wait for vagrant to create VMs with hashicorp/bionic64 box, and Ansible provisioning VMs. 
+after that you can run `kubectl get nodes` command to see list of nodes.
+![k3s](src/images/k3s.png)
