@@ -10,7 +10,7 @@ export async function getStaticProps() {
 
 ---
 
-## [Kubernetes] Kubernetes HPA with monitoring system {{ date: '2023-09-09T00:00Z' }}
+## [K8s] Kubernetes HPA with monitoring system {{ date: '2023-09-09T00:00Z' }}
 
 I'm working on a project to develop Horizontal Pod Autoscaling using CPU metrics monitored by Prometheus and Grafana. 
 The goal is to continuously monitor the cluster. While I'm still learning and refining the project, 
@@ -137,11 +137,44 @@ Be sure to add the necessary environment variable in the CircleCI app.
 >$DOCKER_USER = ACR user<br></br> $DOCKER_PASS = ACR password
 
 
-
-
-
 ---
+## [K3s] Automating k3s Cluster Provisioning Using Vagrant & Ansible {{ date: '2024-07-09T00:00Z' }}
 
-## My Next Projects Plan {{ date: '2024-05-01T00:00Z' }}
+In this project, I automate the provisioning of a k3s cluster using k3sup, 
+a tool that simplifies deploying lightweight Kubernetes clusters. Unlike Minikube, 
+which supports only single-node setups, k3s allows for multi-node deployments, offering greater scalability and flexibility. 
+By combining k3sup with <b>Vagrant</b> and <b>Ansible</b>, I demonstrate how to efficiently set up a scalable k3s cluster locally, 
+providing a cost-effective alternative to cloud-based Kubernetes deployments.
 
-> [ExpressJS] Invoicing App using Express JS <br></br> [ExpressJS] E-commerce Back-end using Express JS <br></br> [Kubernetes] Blue-Green deployment with Kubernetes <br></br> [SonarQube] improving code quality with SonarQube
+Thanks to [eruszczak](https://github.com/eruszczak/k3s-virtualbox) for providing these ideas! I'm modifying his code to match my requirements, but I'm using it exclusively to deploy a k3s cluster; Kubernetes deployments are not included.
+here is the flow diagram:
+
+![k3s](src/images/vagrant.gif)
+### Requirements:
+- VirtualBox
+- Ansible
+- Vagrant
+- k3sup
+- kubectl
+
+you can clone [My Repo](https://github.com/kurniawaanr/k3s.git) to start deploying k3s cluster (i'm running it on Ubuntu20), or if you're an advanced user, you can refer to eruszczak repo instead.
+
+then you just have to edit <b>Vagrantfile</b> on this `default_interface` section:
+
+```ruby
+# edit this interface into your used interface
+default_interface = "wlp3s0"
+```
+then edit `ansible_host` on <b>Inventory.yml</b> You need to edit the IP address 192.168.x.x to match your specific IP subnet configuration for each `ansible_host`.
+
+```yml
+ansible_host: 192.168.x.x
+```
+if everything is set up, run the following command on your terminal:
+>make
+
+![Ansible Playbook](src/images/ansible.png)
+
+then wait for vagrant to create VMs with hashicorp/bionic64 box, and Ansible provisioning VMs. 
+after that you can run `kubectl get nodes` command to see list of nodes.
+![k3s](src/images/k3s.png)
